@@ -1,0 +1,58 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.hud {
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid #334155;
+}
+
+.hud h1 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.hud p,
+.hud li {
+  font-size: 0.85rem;
+}
+
+.battle {
+  color: #f97316;
+  font-weight: 700;
+}
+
+.map-container {
+  width: 100%;
+  min-height: 70vh;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .hud {
+    border-right: 1px solid #334155;
+    border-bottom: none;
+  }
+
+  .map-container {
+    min-height: 100vh;
+  }
+}
