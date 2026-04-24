@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Sehar 💖</title>
+  <style>
+    :root {
+      --bg1: #ffe6f2;
+      --bg2: #ffd6e8;
+      --ink: #5c2a40;
+      --accent: #ff5f9e;
+      --accent-dark: #e24887;
+      --skin: #ffd8c2;
+      --hair: #5a2d2d;
+      --dress: #ff7fb1;
+      --heart: #ff3366;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+      overflow: hidden;
+    }
+
+    .card {
+      position: relative;
+      width: min(92vw, 560px);
+      padding: 24px 20px 32px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 18px 40px rgba(92, 42, 64, 0.2);
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+
+    .title {
+      margin: 0;
+      font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+      letter-spacing: 0.03em;
+    }
+
+    .doll-wrap {
+      margin: 18px auto 8px;
+      width: 220px;
+      height: 280px;
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .head {
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translateX(-50%);
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--skin);
+      border: 3px solid #f0b89a;
+      z-index: 3;
+    }
+
+    .hair {
+      position: absolute;
+      left: 50%;
+      top: -4px;
+      transform: translateX(-50%);
+      width: 122px;
+      height: 70px;
+      background: var(--hair);
+      border-radius: 60px 60px 32px 32px;
+      z-index: 4;
+    }
+
+    .eye {
+      position: absolute;
+      top: 46px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2d1a1a;
+      animation: blink 4s infinite;
+      transform-origin: center;
+      z-index: 5;
+    }
+
+    .eye.left { left: 30px; }
+    .eye.right { right: 30px; }
+
+    .smile {
+      position: absolute;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 14px;
+      border: 3px solid transparent;
+      border-bottom-color: #cc5572;
+      border-radius: 0 0 20px 20px;
+      z-index: 5;
+    }
+
+    .body {
+      position: absolute;
+      left: 50%;
+      top: 112px;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 140px;
+      background: var(--dress);
+      border-radius: 30px 30px 26px 26px;
+      border: 3px solid var(--accent-dark);
+      z-index: 2;
+    }
+
+    .arm {
+      position: absolute;
+      top: 128px;
+      width: 32px;
+      height: 80px;
+      border-radius: 20px;
+      background: var(--skin);
+      border: 3px solid #f0b89a;
+      z-index: 1;
+    }
+
+    .arm.left {
+      left: 18px;
+      transform: rotate(26deg);
+      transform-origin: top center;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .arm.right {
+      right: 18px;
+      transform: rotate(-20deg);
+    }
+
+    .leg {
+      position: absolute;
+      bottom: 4px;
+      width: 30px;
+      height: 72px;
+      border-radius: 18px;
+      background: var(--skin);
+      border: 3px solid #f0b89a;
+      z-index: 0;
+    }
+
+    .leg.left { left: 72px; }
+    .leg.right { right: 72px; }
+
+    .heart {
+      position: absolute;
+      top: 118px;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      background: var(--heart);
+      transform: translateX(-50%) rotate(45deg);
+      animation: pulse 1.2s infinite;
+      z-index: 4;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: var(--heart);
+      border-radius: 50%;
+    }
+
+    .heart::before { left: -12px; }
+    .heart::after { top: -12px; }
+
+    .bubble {
+      min-height: 78px;
+      margin: 8px auto 0;
+      padding: 14px 16px;
+      width: min(92%, 500px);
+      border-radius: 18px;
+      background: #fff;
+      border: 2px dashed #ff9bc3;
+      color: var(--ink);
+      font-size: clamp(0.9rem, 2.2vw, 1.06rem);
+      line-height: 1.35;
+      box-shadow: 0 8px 20px rgba(92, 42, 64, 0.12);
+      transition: opacity 0.35s ease;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      color: #9a5978;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px #fff;
+      animation: twinkle 1.8s infinite;
+      opacity: 0.8;
+    }
+
+    .sparkle.s1 { top: 14%; left: 12%; }
+    .sparkle.s2 { top: 20%; right: 14%; animation-delay: 0.6s; }
+    .sparkle.s3 { bottom: 18%; left: 20%; animation-delay: 1.1s; }
+    .sparkle.s4 { bottom: 10%; right: 18%; animation-delay: 0.3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes blink {
+      0%, 44%, 48%, 100% { transform: scaleY(1); }
+      46% { transform: scaleY(0.1); }
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(26deg); }
+      50% { transform: rotate(40deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) rotate(45deg) scale(1); }
+      50% { transform: translateX(-50%) rotate(45deg) scale(1.2); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1 class="title">A little message for Sehar 💌</h1>
+
+    <section class="doll-wrap" aria-label="Cute animated doll">
+      <div class="head">
+        <div class="hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="smile"></div>
+      </div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="body"></div>
+      <div class="heart"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </section>
+
+    <p id="message" class="bubble" aria-live="polite"></p>
+    <p class="note">Made with love by Madhav ✨</p>
+
+    <span class="sparkle s1"></span>
+    <span class="sparkle s2"></span>
+    <span class="sparkle s3"></span>
+    <span class="sparkle s4"></span>
+  </main>
+
+  <script>
+    const lines = [
+      "Hey Sehar, this is from Madhav.",
+      "He says he will be considerate.",
+      "He will think thrice before speaking and keep his tone in control.",
+      "He loves you and will always respect your boundaries."
+    ];
+
+    const bubble = document.getElementById("message");
+    let i = 0;
+
+    function showLine() {
+      bubble.style.opacity = 0;
+      setTimeout(() => {
+        bubble.textContent = lines[i];
+        bubble.style.opacity = 1;
+        i = (i + 1) % lines.length;
+      }, 280);
+    }
+
+    showLine();
+    setInterval(showLine, 2500);
+  </script>
+</body>
+</html>
